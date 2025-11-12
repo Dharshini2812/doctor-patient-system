@@ -1,0 +1,93 @@
+:root{
+  --bg:#f6f7fb;
+  --panel:#ffffff;
+  --border:#e6e8ee;
+  --text:#0f172a;
+  --muted:#6b7280;
+  --primary:#2563eb;
+  --primary-weak:#e0e7ff;
+  --bubble:#f1f5f9;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+}
+
+.app{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  height:100vh;
+}
+
+.sidebar{
+  border-right:1px solid var(--border);
+  background:var(--panel);
+  display:flex;
+  flex-direction:column;
+}
+
+.sidebar-header{padding:12px 16px;border-bottom:1px solid var(--border)}
+.brand{margin:0;font-size:16px;font-weight:600}
+
+.doctor-card{
+  display:flex;gap:12px;align-items:center;padding:16px;border-bottom:1px solid var(--border)
+}
+.avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,#93c5fd,#818cf8);
+  color:#fff;display:grid;place-items:center;font-weight:600
+}
+.avatar[data-initials]:after{content:attr(data-initials)}
+.info .name{font-weight:600}
+.status{font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:#9ca3af}
+.dot.online{background:#22c55e}
+.dot.offline{background:#9ca3af}
+
+.list-title{padding:10px 16px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+
+.patients{list-style:none;margin:0;padding:0;overflow:auto}
+.patient{
+  display:flex;align-items:center;gap:12px;padding:10px 16px;cursor:pointer
+}
+.patient:hover{background:#f8fafc}
+.patient.active{background:#eef2ff}
+.patient .name{font-weight:500}
+.patient .presence{margin-left:auto;font-size:12px;color:var(--muted)}
+
+.chat{display:grid;grid-template-rows:auto 1fr auto;}
+.chat-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--border);background:var(--panel)}
+.chat-header .title{font-weight:600}
+.typing{font-size:12px;color:var(--muted)}
+
+.messages{padding:16px;overflow:auto;display:flex;flex-direction:column;gap:10px}
+.msg{display:flex;align-items:flex-end;gap:8px;max-width:70%}
+.msg.patient{flex-direction:row}
+.msg.doctor{flex-direction:row-reverse;margin-left:auto}
+.bubble{padding:10px 12px;border-radius:14px;line-height:1.35;background:var(--bubble)}
+.msg.doctor .bubble{background:var(--primary);color:#fff}
+.meta{font-size:11px;color:var(--muted);margin:0 6px}
+
+.composer{display:flex;gap:10px;align-items:center;padding:12px 16px;border-top:1px solid var(--border);background:var(--panel)}
+.composer input{flex:1;height:40px;border:1px solid var(--border);border-radius:10px;padding:0 12px;background:#fff}
+.composer button{height:40px;width:44px;border:none;border-radius:10px;background:var(--primary);color:#fff;cursor:pointer}
+.composer button:hover{filter:brightness(.95)}
+
+@media (max-width: 900px){
+  .app{grid-template-columns:1fr}
+  .sidebar{display:none}
+}
+
+
+
+
+
+
+
+
+
